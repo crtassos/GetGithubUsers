@@ -1,2 +1,2 @@
 # ReactFrontToEnd
-Brad Traversy's Course on Udemy
+Brad Traversy Course on Udemy
