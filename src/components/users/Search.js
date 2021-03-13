@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 //rce - class based component emmet
 export class Search extends Component {
     state = {
         text:''
+    }
+
+    static propTypes = {
+        searchUsers: PropTypes.func.isRequired
     }
 
     onChange = (event)=>
@@ -12,7 +17,8 @@ export class Search extends Component {
   
     onSubmit = (event) =>{
         event.preventDefault()
-        console.log(this.state.text)
+        this.props.searchUsers(this.state.text)
+        this.setState({ text:'' })
     }
   
         render() {
