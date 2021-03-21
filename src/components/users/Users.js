@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Spinner from '../layout/Spinner'
 import UserItem from './UserItem'
-import PropTypes from 'prop-types'//impt
+import GithubContext from '../../context/github/GithubContext'
 
 //rafce - emmet - functional component
-const Users = ({ loading, users }) => {
+const Users = () => {
+    const githubContext = useContext(GithubContext)
+
+    const { loading, users } = githubContext
+
     if(loading){
         return <Spinner/>
     }else {
@@ -18,10 +22,6 @@ const Users = ({ loading, users }) => {
     }
 }
 
-Users.propTypes = {
-    users:PropTypes.array.isRequired,//ptar - shortcut
-    loading:PropTypes.bool.isRequired,//ptbr - proptype-boolean-required
-}
 
 const userStyle = {
     display: 'grid',
